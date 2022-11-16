@@ -1,6 +1,6 @@
 # ProjBiblioteca
 
-Projeto desenvolvido com a ideia de ser um sistema de gerenciamento de una bibloteca
+Projeto desenvolvido com a ideia de ser um sistema de gerenciamento de uma biblioteca
 
 ------------------------------------------------------------------
 
