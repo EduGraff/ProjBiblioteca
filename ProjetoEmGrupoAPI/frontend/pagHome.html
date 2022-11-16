@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" type="imagem/png">
+    <link rel="shortcut icon" type="imagem/x-icon"
+        href="https://iconarchive.com/download/i58917/wwalczyszyn/android-style-honeycomb/Books.ico" />
+    <title>Biblioteca</title>
+    <script src="js/script.js"></script>
+    <script src="js/scriptRequests.js"></script>
+</head>
+
+<body>
+    <div class="content">
+        <div id="menu">
+            <div id="menu-items">
+                <a href="#" class="menu-item" onclick="openModalClient('dv-modal-c')">Cliente</a>
+                <a href="#" class="menu-item" onclick="openModalClient('dv-modal-l')">Livro</a>
+                <a href="#" class="menu-item" onclick="openModalClient('dv-modal-e')">Emprestimo</a>
+                <a href="#" class="menu-item" onclick="openModalClient('dv-modal-sobre')">Sobre</a>
+            </div>
+            <div id="menu-background-pattern"></div>
+            <div id="menu-background-image"></div>
+        </div>
+    </div>
+
+    <!-- Div Modal Cliente -->
+
+    <div id="dv-modal-c" class="modal">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2>Cliente:
+                    <button class="bt-modal" onclick="openFormClienteCad('cadClient')">Cadastrar</button>
+                    <button class="bt-modal" onclick="openFormClienteAtt('attClient')">Atualizar</button>
+                    <button class="bt-modal" onclick="openFormClienteRem('remClient')">Excluir</button>
+                    <!-- <button class="bt-modal" onclick="openFormClienteList('listClient')">Listar</button> -->
+                </h2>
+            </div>
+
+            <div id="modal" class="modal-body">
+                <form id='cadClient' class="contentFormClientCad" style="display: none;"> <br>
+                    <label for="nome" class="text-forms">Nome Cliente: </label>
+                    <input type="text" id="nomeCliente" name="nomeCliente" placeholder="Digite aqui"><br><br>
+                    <label for="email" class="text-forms">Email: </label>
+                    <input type="text" id="emailCliente" name="emailCliente" placeholder="exemplo@hotmail.com"><br><br>
+                    <label for="tel1" class="text-forms">Telefone 1: </label>
+                    <input type="text" id="tel1Cliente" name="tel1Cliente" placeholder="(21) 99999-9999"><br><br>
+                    <label for="tel2" class="text-forms">Telefone 2: </label>
+                    <input type="text" id="tel2Cliente" name="tel2Cliente" placeholder="(21) 99999-9999"><br><br><br>
+                    <button href="#" class="bt-ok" onclick="campoNullCadCliente()">Cadastrar</button><br> <br>
+                    <hr>
+                </form>
+
+                <form id='attClient' class="contentFormClientAtt" style="display: none;"> <br>
+                    <label for="nome" class="text-forms">ID Cliente: </label>
+                    <input type="text" id="id-clienteAtt" name="nome" placeholder="Digite aqui"><br><br>
+                    <label for="nome" class="text-forms">Nome Cliente: </label>
+                    <input type="text" id="nomeAtt" name="nome" placeholder="Digite aqui"><br><br>
+                    <label for="email" class="text-forms">Email: </label>
+                    <input type="text" id="emailAtt" name="email" placeholder="exemplo@hotmail.com"><br><br>
+                    <label for="tel1" class="text-forms">Telefone 1: </label>
+                    <input type="text" id="tel1Att" name="tel1" placeholder="(21) 99999-9999"><br><br>
+                    <label for="tel2" class="text-forms">Telefone 2: </label>
+                    <input type="text" id="tel2Att" name="tel2" placeholder="(21) 99999-9999"><br><br><br>
+                    <button class="bt-ok" onclick="campoNullAttCliente()">Atualizar</button><br> <br>
+                    <hr>
+
+                </form>
+
+                <form id='remClient' class="contentFormClientRem" style="display: none;"> <br>
+                    <label for="nome" class="text-forms">ID Cliente: </label>
+                    <input type="text" id="id-clienteDelete" name="nome" placeholder="Digite aqui"><br><br>
+                    <button class="bt-ok" onclick="campoNullDelCliente()">Remover</button><br><br>
+                    <hr>
+                </form>
+
+                <div class="form">
+                    <br>
+                    <button class="bt-list" onclick="listarCliente()">Listar Usuários</button>
+                    <br>
+                    <div id="lista-clientes"></div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="bt" onclick="closeModal('dv-modal-c')">Fechar
+                    Modal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Div Modal Livros -->
+
+    <div id="dv-modal-l" class="modal">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2>Livros:
+                    <button class="bt-modal" onclick="openFormLivroCad('cadLivro')">Cadastrar</button>
+                    <button class="bt-modal" onclick="openFormLivroAtt('attLivro')">Atualizar</button>
+                    <button class="bt-modal" onclick="openFormLivroRem('remLivro')">Excluir</button>
+                    <!-- <button class="bt-modal" onclick="openFormLivroList('listLivro')">Listar</button> -->
+                </h2>
+            </div>
+
+            <div id="modal" class="modal-body">
+                <form id='cadLivro' class="contentFormClientCad" style="display: none;"> <br>
+                    <label for="nomeLivro" class="text-forms">Título: </label>
+                    <input type="text" id="nomeLivro" name="nomeLivro" placeholder="Digite aqui"><br><br>
+                    <label for="autor" class="text-forms">Autor: </label>
+                    <input type="text" id="autor" name="autor" placeholder="Rick Riordan"><br><br>
+                    <label for="quantPaginas" class="text-forms">Quantidade de Páginas: </label>
+                    <input type="text" id="quantPaginas" name="quantPaginas" placeholder="999"><br><br>
+                    <label for="editora" class="text-forms">Editora: </label>
+                    <input type="text" id="editora" name="editora" placeholder="Harper Collins"><br><br>
+                    <label for="edicao" class="text-forms">Edição: </label>
+                    <input type="text" id="edicao" name="edicao" placeholder="1ª Edição"><br><br><br>
+                    <button class="bt-ok"  onclick="campoNullCadLivro()">Cadastrar</button><br><br>
+                    <hr>
+                </form>
+
+                <form id='attLivro' class="contentFormClientAtt" style="display: none;"> <br>
+                    <label for="id-livroAtt" class="text-forms">ID Livro: </label>
+                    <input type="text" id="id-livroAtt" name="id-livro" placeholder="Digite Aqui"><br><br>
+                    <label for="nomeLivroAtt" class="text-forms">Título: </label>
+                    <input type="text" id="nomeLivroAtt" name="nomeLivro" placeholder="Digite aqui"><br><br>
+                    <label for="autorAtt" class="text-forms">Autor: </label>
+                    <input type="text" id="autorAtt" name="autor" placeholder="Rick Riordan"><br><br>
+                    <label for="quantPaginasAtt" class="text-forms">Quantidade de páginas: </label>
+                    <input type="text" id="quantPaginasAtt" name="quantPaginas" placeholder="999"><br><br>
+                    <label for="editoraAtt" class="text-forms">Editora: </label>
+                    <input type="text" id="editoraAtt" name="editora" placeholder="Harper Collins"><br><br>
+                    <label for="edicaoAtt" class="text-forms">Edição: </label>
+                    <input type="text" id="edicaoAtt" name="edicao" placeholder="1ª Edição"><br><br><br>
+                    <button class="bt-ok" onclick="campoNullAttLivro()">Atualizar</button><br><br>
+                    <hr>
+                </form>
+
+                <form id='remLivro' class="contentFormClientRem" style="display: none;"> <br>
+                    <label for="id-livroDel" class="text-forms">ID Livro: </label>
+                    <input type="text" id="id-livroDel" name="id-livro" placeholder="Digite Aqui"><br><br>
+
+                    <button class="bt-ok" onclick="campoNullDelLivro()">Remover</button><br><br>
+                    <hr>
+                </form>
+
+                <div class="form">
+                    <br>
+                    <button class="bt-list" onclick="listarLivros()">Listar Livros</button>
+                    <div id="lista-livros"></div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="bt" onclick="closeModal('dv-modal-l')">Fechar
+                    Modal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Div Modal Emprestimo -->
+
+    <div id="dv-modal-e" class="modal">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2>Emprestimo:
+                    <button class="bt-modal" onclick="openFormEmprestimoCad('cadEmprestimo')">Cadastrar</button>
+                    <button class="bt-modal" onclick="openFormEmprestimoAtt('attEmprestimo')">Renovar</button>
+                    <button class="bt-modal" onclick="openFormEmprestimoRem('remEmprestimo')">Excluir</button>
+                    <!-- <button class="bt-modal" onclick="openFormEmprestimoList('listEmprestimo')">Listar</button> -->
+                </h2>
+            </div>
+
+            <div id="modal" class="modal-body">
+                <form id='cadEmprestimo' class="contentFormClientCad" style="display: none;">
+                    <br>
+                    <label for="id-clienteEmp" class="text-forms">ID Cliente: </label>
+                    <input type="text" id="id-clienteEmp" name="nome" placeholder="Digite Aqui"><br><br>
+                    <label for="id-livroEmp" class="text-forms">ID Livro: </label>
+                    <input type="text" id="id-livroEmp" name="cpf" placeholder="Digite Aqui"><br><br>
+
+                    <button  class="bt-ok" onclick="campoNullCadEmprestimo()">Cadastrar</button><br> <br>
+                    <hr>
+                </form>
+
+                <form id='attEmprestimo' class="contentFormClientAtt" style="display: none;">
+                    <br>
+                    <label for="id-emprestimoAtt" class="text-forms">ID Emprestimo: </label>
+                    <input type="text" id="id-emprestimoAtt" name="nome" placeholder="Digite aqui"><br><br>
+                    <label for="id-clienteEmpAtt" class="text-forms">ID Cliente: </label>
+                    <input type="text" id="id-clienteEmpAtt" name="nome" placeholder="Digite aqui"><br><br>
+                    <label for="id-livroEmpAtt" class="text-forms">ID Livro: </label>
+                    <input type="text" id="id-livroEmpAtt" name="cpf" placeholder="095.757.739-77"><br><br>
+                    <button class="bt-ok" onclick="campoNullAttEmprestimo()">Renovar</button><br> <br>
+                    <hr>
+
+                </form>
+
+                <form id='remEmprestimo' class="contentFormClientRem" style="display: none;">
+                    <br>
+                    <label for="id-emprestimoDel" class="text-forms">ID Emprestimo: </label>
+                    <input type="text" id="id-emprestimoDel" name="nome" placeholder="Digite aqui"><br><br>
+                    <button class="bt-ok" onclick="campoNullAttEmprestimo()">Remover</button><br><br>
+                    <hr>
+                </form>
+
+                <div class="form">
+                    <br>
+                    <button class="bt-list" onclick="listarEmprestimos()">Listar Emprestimos</button>
+                    <div id="lista-emprestimos"></div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="bt" onclick="closeModal('dv-modal-e')">Fechar
+                    Modal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Div Modal Sobre -->
+
+    <div id="dv-modal-sobre" class="modal">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2 class="sobre">Sobre
+
+                </h2>
+            </div>
+
+            <div id="modal" class="modal-body">
+                <table class="table-sobre">
+                    <h3 style="font-family: Arial, Helvetica, sans-serif">Site Desenvolvido por:</h3>
+                    <tr>
+                        <td><img width="150" height="150" src="css/Lucas.jpg" style="border: 2px solid;" /></td>
+                        <td style="font-size: 20px; padding-left: 10px; font-weight: bold;">Lucas Morialdo</td>
+                    </tr>
+
+                    <tr>
+                        <td><br></td>
+                    </tr>
+                    <tr>
+
+                        <td style=><img width="150" height="150" src="css/Gustavo.jpg " style="border: 2px solid;" />
+                        </td>
+                        <td style="font-size: 20px; padding-left: 10px; font-weight: bold">Gustavo Felipe</td>
+                    </tr>
+
+                </table>
+                <tr>
+                    <td><br></td>
+                </tr>
+            </div>
+
+            <div class="modal-footer">
+                <button class="bt" onclick="closeModal('dv-modal-sobre')">Fechar
+                    Modal</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

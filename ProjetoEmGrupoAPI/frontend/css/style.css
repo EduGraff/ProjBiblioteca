@@ -1,0 +1,281 @@
+
+body {
+    background-color: rgb(20, 20, 20);
+    margin: 0px;
+}
+#menu {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+
+.menu-item{
+    color: white;
+    font-size: 55px;
+    font-family: "Ibarra Real Nova", serif;
+
+    display: block;
+    text-decoration: none;
+    padding:  clamp(0.25rem, 0.5vw, 1rem) 0rem;
+    transition: opacity 400ms ease;
+}
+
+#menu-items {
+    margin-left:clamp(4rem, 20vw, 48rem);
+    position: relative;
+    z-index: 2;
+}
+
+#menu-items:hover > .menu-item {
+    opacity: 0.3;
+}
+
+#menu-items:hover > .menu-item:hover {
+    opacity: 1;
+}
+
+#menu-background-pattern {
+    height:  100vh;
+    width: 100vw;
+
+    background-image: radial-gradient(
+        rgba (2255, 255, 255, 0.1) 9%,
+        transparent 9%
+    );
+    background-position: 0% 0%;
+    background-size: 12vmin 12vmin;
+
+    position: absolute;
+    left:  0px;
+    top: 0px;
+    z-index: 1;
+
+    transition: opacity 800ms ease,
+    background-size 800ms ease;
+
+} 
+
+#menu-items:hover ~ #menu-background-pattern {
+    background-size: 11vmin 11vmin;
+    opacity: 0.5;
+}
+
+#menu[data-active-index="0"] > #menu-background-pattern {
+    background-position: 0% -25%;
+}
+
+#menu[data-active-index="1"] > #menu-background-pattern {
+    background-position: 0% -50%;
+}
+
+#menu[data-active-index="2"] > #menu-background-pattern {
+    background-position: 0% -75%;
+}
+
+#menu[data-active-index="3"] > #menu-background-pattern {
+    background-position: 0% -100%;
+}
+
+#menu-background-image {
+    height:  100%;
+    width:   100%;
+
+    background-image: url("https://images.pexels.com/photos/1290141/pexels-photo-1290141.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+
+    background-position: center 40%;
+    background-size:  110vmax;
+    opacity: 0.15;
+
+    transition: opacity 800ms ease,
+    background-size 800ms ease,
+    background-position 800ms ease;
+}
+
+#menu-items:hover ~ #menu-background-image {
+    background-size: 100vmax;
+    opacity: 0.10;
+}
+
+#menu[data-active-index="0"] > #menu-background-image {
+    background-position: center 40%;
+}
+
+#menu[data-active-index="1"] > #menu-background-image {
+    background-position: center 50%;
+}
+
+#menu[data-active-index="2"] > #menu-background-image {
+    background-position: center 60%;
+}
+
+#menu[data-active-index="3"] > #menu-background-image {
+    background-position: center 70%;
+}
+
+.bt{
+    background-color: rgb(194, 12, 12);
+    padding: 5px 10px 5px 10px;
+    border: 2px solid rgb(138, 2, 2);
+    cursor: pointer;
+    transition: background .3s;
+    color: #ffff;
+    border-radius: 5px;
+    font-weight: bold;
+   
+}
+
+.bt:hover{
+    background-color: rgb(240, 50, 50);
+    border: 2px solid rgb(138, 2, 2);
+    font-weight: bold;
+}
+
+.bt:active {
+    background-color: rgb(236, 135, 135);
+    color: black;
+    font-weight: bold;
+}
+
+.bt-modal{
+    background-color: rgb(206, 204, 204);
+    padding: 5px 10px 5px 10px;
+    border: 2px solid rgb(66, 56, 56);
+    cursor: pointer;
+    transition: background .3s;
+    color: black;
+    border-radius: 5px;
+    font-weight: bold;
+    
+}
+
+.bt-modal:hover{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(138, 2, 2);
+}
+
+.bt-modal:focus {
+    background-color: rgb(236, 135, 135);
+    color: black;
+}
+
+.modal{
+    background-color: rgba(0, 0, 0, .95);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+
+    
+}
+
+.modal-content{
+    margin: 0 auto;
+    margin-top: 5%;
+    max-width:  900px;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: transparent;      
+   
+}
+
+.modal-header, .modal-body, .modal-footer{
+    padding: 10px;
+    
+}
+
+.modal-header{
+    background-color: rgb(228, 228, 228);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom: 8px solid #0000;
+    
+}
+
+.modal-body{
+    background-color: #ffff;
+  
+}
+
+.modal-footer{
+    background-color: rgb(228, 228, 228);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.bt-ok{
+    background-color: rgb(206, 204, 204);
+    padding: 5px 10px 5px 10px;
+    border: 2px solid rgb(66, 56, 56);
+    cursor: pointer;
+    transition: background .3s;
+    color: black;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.bt-ok:hover{
+    background-color: #ffff;
+
+}
+
+.bt-ok:active{
+    background-color:greenyellow;
+
+}
+
+
+.bt-list{
+    background-color: lightgray;
+    font-weight: bold;
+    border: 2px solid;
+    transition: background .5s;
+    border-radius: 5px;
+    padding: 4px;
+
+}
+
+.bt-list:hover{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(138, 2, 2);
+}
+
+.bt-list:active{
+    background-color: rgb(248, 221, 191);
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.text-forms{
+    font-family: "Ibarra Real Nova", serif;
+    font-weight: bold;
+   font-size:large;
+}
+
+h2{
+    font-family: "Arial";
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input{
+    padding: 4px;
+    border: solid 2px;
+    width: auto;
+
+}
+
+.sobre{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.table-sobre{
+    font-family: "Arial";
+}
